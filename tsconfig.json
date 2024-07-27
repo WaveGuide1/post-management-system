@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "rootDir": "./",
+      "strict": true,
+      "esModuleInterop": true,
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "types": [
+        "node",
+        "express",
+        "mongoose",
+        "bcryptjs",
+        "jsonwebtoken"
+      ]
+    },
+    "include": ["src/**/*.ts", "app.ts"],
+    "exclude": ["node_modules"]
+  }
+  
