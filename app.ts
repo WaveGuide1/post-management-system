@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './src/config/db_config';
 import authRoutes from './src/routes/authRoutes';
+import postRoutes from './src/routes/postRoutes';
 import { errorHandler } from './src/utils/customException';
 import { setupSwagger } from './src/utils/swagger';
 
@@ -15,6 +16,7 @@ app.use(express.json());
 connectDB();
 
 app.use('/api/auth', authRoutes);
+app.use('/api', postRoutes);
 
 setupSwagger(app);
 
