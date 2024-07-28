@@ -1,24 +1,27 @@
-import express, { Application, Request, Response } from 'express';
-import connectDB from './src/config/db_config';
+import express from 'express';
 import dotenv from 'dotenv';
+import connectDB from './src/config/db_config';
+import authRoutes from './src/routes/authRoutes';
+import postRoutes from './src/routes/postRoutes';
+import { errorHandler } from './src/utils/customException';
+import { setupSwagger } from './src/utils/swagger';
 
 dotenv.config();
 
-const app: Application = express();
+const app = express();
+const PORT = process.env.PORT || 7000;
 
-// Connect to database
-connectDB();
-
-// Middleware
 app.use(express.json());
 
-// Routes
+connectDB();
 
+app.use('/api/auth', authRoutes);
+app.use('/api', postRoutes);
 
-// Error handling middleware
+setupSwagger(app);
 
+app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-export default app;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
