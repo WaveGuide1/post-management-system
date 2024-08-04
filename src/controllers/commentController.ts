@@ -22,7 +22,6 @@ export const addComment = async (req: AuthenticatedRequest, res: Response) => {
 };
 
 export const getComments = async (req: Request, res: Response) => {
-    console.log(req.params);
     
     try {
         const { postId } = req.params;
