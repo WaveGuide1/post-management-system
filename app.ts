@@ -5,6 +5,7 @@ import authRoutes from './src/routes/authRoutes';
 import postRoutes from './src/routes/postRoutes';
 import { errorHandler } from './src/utils/customException';
 import { setupSwagger } from './src/utils/swagger';
+import commentRoutes from './src/routes/commentRoutes';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ connectDB();
 
 app.use('/api/auth', authRoutes);
 app.use('/api', postRoutes);
+app.use('/api', commentRoutes);
 
 setupSwagger(app);
 
