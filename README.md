@@ -8,7 +8,6 @@ This project is a Post Management System implemented using Node.js with TypeScri
 - Create, edit, delete, and retrieve posts
 - Upvote and downvote posts
 - Add comments and replies to posts
-- Retrieve comments for a specific post
 - Sort and filter posts
 - JWT-based authentication
 - Swagger documentation
